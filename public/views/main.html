@@ -1,0 +1,40 @@
+<div ng-controller="MainController">
+
+    <!--Stopwatch display -->
+    <div class="timer">
+        <h1 class="display text-center">
+            {{ currentFormatted }}
+        </h1>
+
+        <div class="buttons">
+            <button class="btn btn-success" ng-disabled="timerOn"   ng-click="start()" >Start </button>
+            <button class="btn btn-danger"  ng-disabled="!timerOn"  ng-click="stop()" >Stop </button>
+            <button class="btn btn-warning" ng-disabled="!timerOn"  ng-click="lap()" >Lap </button>
+            <button class="btn btn-default" ng-disabled="!timerOn"  ng-click="reset()" >Reset </button>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <!--View laps-->
+        <div class="col-md-8">
+            <a  ng-if="lapsCount > 0 && (showLaps === false )" ng-click="getLaps()" >View Laps </a>
+
+            <a  ng-if="showLaps === true" ng-click="hideLaps()" > Hide Laps </a>
+
+            <dl ng-if="showLaps" class="dl-horizontal" ng-repeat="lap in laps track by $index" >
+                <dt ng-if="$index > 0">{{ $index }}</dt>
+                <dd ng-if="$index > 0">{{ lap.deltaMsString}}</dd>
+            </dl>
+
+        </div>
+
+        <!--Get average lap-->
+        <div class="col-md-4">
+            <a ng-click="getAverageLap()" ng-if="lapsCount > 0" >getAverageLap() </a>
+            <h4> {{ averageLap }} </h4>
+        </div>
+
+    </div>
+
+</div>

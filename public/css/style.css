@@ -1,0 +1,15 @@
+.main {
+    margin-top: 75px;
+}
+
+.timer {
+    margin: 0 auto;
+    padding: 25px;
+    width: 600px;
+}
+
+.timer .buttons{
+    margin: 0 auto;
+    width: 250px;
+}
+

@@ -1,0 +1,27 @@
+{
+  "name": "ClassyStopwatch",
+  "homepage": "https://github.com/alicenguyen/bash",
+  "authors": [
+    "Alice Nguyen <a8nguyen@ucsd.edu>"
+  ],
+  "description": "A simple class that represents a simple stopwatch. The stopwatch can be started, stopped, reset and record when \"laps\" occur to generate split times.",
+  "moduleType": [],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6",
+    "angular-resource": "~1.5.5",
+    "angular": "~1.5.5",
+    "angular-ui-router": "~0.2.18",
+    "jquery": "~2.2.3",
+    "moment": "~2.13.0",
+    "angular-bootstrap": "^1.3.2"
+  }
+}
