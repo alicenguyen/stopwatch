@@ -12,7 +12,9 @@ app.controller('MainController',
         $scope.timerOn          = false;
         $scope.currentFormatted = '00:00';
         $scope.laps             = null;
-        $scope.showLaps = false;
+        $scope.lapsCount        = 0;
+        $scope.showLaps         = false;
+        $scope.showAverageLaps  = false;
 
 
         // //////////////////////////////////////////
@@ -29,15 +31,16 @@ app.controller('MainController',
             }
         };
 
-
         $scope.stop = function () {
             $scope.timerOn = false;
         };
 
         $scope.lap = function () {
+            // calculate lap time
             var prevLap = _laps[_laps.length - 1];
             var lapTime = Math.abs(prevLap.time - $scope.current);
 
+           // store the lap 
             var currLap = {
                 time: $scope.current,
                 deltaMs: lapTime,
@@ -45,15 +48,26 @@ app.controller('MainController',
             };
             _laps.push(currLap);
             $scope.lapsCount = _laps.length;
+           
+            // update average lap
+            if($scope.showAverageLaps === true){
+                $scope.getAverageLap();
+            }
 
         };
 
         $scope.reset = function () {
             $scope.timerOff         = false;
-            $scope.currentFormatted = $scope.averageLap = '00:00';
-            _laps                   = [];
             $scope.laps             = false;
+            $scope.showLaps         = false;
+            $scope.showAverageLaps  = false;
+
             $scope.current          = $scope.initial = undefined;
+            $scope.currentFormatted = '00:00';
+            $scope.currentFormatted = '00:00';
+            $scope.lapsCount        = 0;
+            _laps                   = [];
+            $scope.averageLap;
             
             if($scope.timerOn){
                 $scope.start();
@@ -73,16 +87,20 @@ app.controller('MainController',
 
         $scope.getAverageLap = function () {
             var sum = 0;
-
             _laps.forEach(function (lap) {
                 sum += lap.deltaMs
             });
+            
             if (sum === 0) {
                 $scope.averageLap = "00:00";
             } else {
-                $scope.averageLap = parseMs(sum / _laps.length);
+                var lapCount = $scope.lapsCount-1;
+                $scope.averageLap = parseMs(sum / lapCount);
             }
-
+            
+            $scope.showAverageLaps = true;
+            
+            
         };
 
         $scope.$watch('timerOn', function (newValue, oldValue) {
@@ -102,12 +120,11 @@ app.controller('MainController',
         // //////////////////////////////////////////
 
         function updateTimer(isInitial) {
-            if (isInitial !== true) {
-                $scope.current += 1000;
-            }
+            if (isInitial !== true) { $scope.current += 1000; }
+            
             var diff                = $scope.current - $scope.initial;
             $scope.currentFormatted = parseMs(diff);
-
+            
             if (isInitial === true) {
                 _laps.push({time: $scope.current, deltaMs: 0, deltaMsString: '00:00'});
             }

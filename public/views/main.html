@@ -32,9 +32,8 @@
         <!--Get average lap-->
         <div class="col-md-4">
             <a ng-click="getAverageLap()" ng-if="lapsCount > 0" >Average Lap</a>
-            <h4> {{ averageLap }} </h4>
+            <h4 ng-if="showAverageLaps"> {{ averageLap }} </h4>
         </div>
 
     </div>
-
 </div>
