@@ -8,17 +8,26 @@
     <link href="/favicon.ico" type="image/x-icon" rel="icon" />
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="bower_components/angular-bootstrap/ui-bootstrap-csp.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css">
 
 </head>
 
 <body ng-app="Stopwatch">
-
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a class="btn btn-default btn-sm" href="https://github.com/alicenguyen/stopwatch"> <i
+                    class="fa fa-github-alt" ></i> View Source </a>
+            </li>
+        </ul>
+    </div>
+</nav>
 <div class="container main">
 
     <div ui-view></div>
 </div>
-
 
 <script src="bower_components/angular/angular.min.js"></script>
 <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
