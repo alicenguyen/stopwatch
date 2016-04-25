@@ -54,7 +54,10 @@ app.controller('MainController',
             _laps                   = [];
             $scope.laps             = false;
             $scope.current          = $scope.initial = undefined;
-            $scope.start();
+            
+            if($scope.timerOn){
+                $scope.start();
+            }
         };
 
         // $scope.getTime = function () { };
