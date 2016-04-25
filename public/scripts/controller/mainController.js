@@ -50,7 +50,7 @@ app.controller('MainController',
 
         $scope.reset = function () {
             $scope.timerOff         = false;
-            $scope.currentFormatted = '00:00';
+            $scope.currentFormatted = $scope.averageLap = '00:00';
             _laps                   = [];
             $scope.laps             = false;
             $scope.current          = $scope.initial = undefined;

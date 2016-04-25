@@ -10,7 +10,7 @@
             <button class="btn btn-success" ng-disabled="timerOn"   ng-click="start()" >Start </button>
             <button class="btn btn-danger"  ng-disabled="!timerOn"  ng-click="stop()" >Stop </button>
             <button class="btn btn-warning" ng-disabled="!timerOn"  ng-click="lap()" >Lap </button>
-            <button class="btn btn-default" ng-disabled="!timerOn"  ng-click="reset()" >Reset </button>
+            <button class="btn btn-default" ng-click="reset()" >Reset </button>
         </div>
     </div>
 
@@ -31,7 +31,7 @@
 
         <!--Get average lap-->
         <div class="col-md-4">
-            <a ng-click="getAverageLap()" ng-if="lapsCount > 0" >getAverageLap() </a>
+            <a ng-click="getAverageLap()" ng-if="lapsCount > 0" >Average Lap</a>
             <h4> {{ averageLap }} </h4>
         </div>
 
