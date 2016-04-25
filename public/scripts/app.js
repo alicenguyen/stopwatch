@@ -1,6 +1,5 @@
 var app = angular.module('Stopwatch', [
-    'ui.router',
-    'ui.bootstrap'
+    'ui.router'
 ]);
 
 app.config(
