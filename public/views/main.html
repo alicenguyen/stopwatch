@@ -1,39 +1,62 @@
 <div ng-controller="MainController">
 
-    <!--Stopwatch display -->
-    <div class="timer">
-        <h1 class="display text-center">
-            {{ currentFormatted }}
-        </h1>
+    <!--  Stopwatch Body -->
+    <div class="timer-container row">
 
-        <div class="buttons">
-            <button class="btn btn-success" ng-disabled="timerOn"   ng-click="start()" >Start </button>
-            <button class="btn btn-danger"  ng-disabled="!timerOn"  ng-click="stop()" >Stop </button>
-            <button class="btn btn-warning" ng-disabled="!timerOn"  ng-click="lap()" >Lap </button>
-            <button class="btn btn-default" ng-click="reset()" >Reset </button>
+        <!-- The display -->
+        <div id="display" class="col-sm-12">
+            <hr>
+            <h1 class="text-center"> {{ currentFormatted }} </h1>
+            <hr>
         </div>
+
+        <!--lap-->
+        <div class="bottom-controls">
+            <div class="col-sm-6" ng-show="!timerOn">
+                <button class="btn btn-default" ng-click="reset()">Reset</button>
+            </div>
+            <div class="col-sm-6" ng-show="timerOn">
+                <button class="btn btn-warning" ng-click="lap()">Lap</button>
+            </div>
+            <!--start-->
+            <div class="col-sm-6" ng-show="!timerOn">
+                <button class="btn btn-success" ng-click="start()">Start</button>
+            </div>
+            <!--stop-->
+            <div class="col-sm-6" ng-show="timerOn">
+                <button class="btn btn-danger" ng-click="stop()">Stop</button>
+            </div>
+        </div>
+        <!--reset-->
+
     </div>
 
 
-    <div class="row">
-        <!--View laps-->
-        <div class="col-md-8">
-            <a  ng-if="lapsCount > 0 && (showLaps === false )" ng-click="getLaps()" >View Laps </a>
+    <!-- the controllers -->
+    <div class="row lap-times">
 
-            <a  ng-if="showLaps === true" ng-click="hideLaps()" > Hide Laps </a>
+        <!--compute (view) avg lap -->
+        <dl class="dl-horizontal">
+            <dt><a ng-click="getAverageLap()" ng-if="lapsCount > 0">compute avg lap</a></dt>
+            <dd><h4 ng-if="showAverageLaps"> {{ averageLap }} </h4></dd>
 
-            <dl ng-if="showLaps" class="dl-horizontal" ng-repeat="lap in laps track by $index" >
-                <dt ng-if="$index > 0">{{ $index }}</dt>
-                <dd ng-if="$index > 0">{{ lap.deltaMsString}}</dd>
-            </dl>
+            <dt> <a class="text-center" ng-if="lapsCount > 0 && showLaps === false " ng-click="getLaps()"> view laps</a>
+                 <a ng-if="showLaps === true" ng-click="hideLaps()">hide laps</a>
+            </dt>
+            <dd></dd>
 
-        </div>
+        </dl>
 
-        <!--Get average lap-->
-        <div class="col-md-4">
-            <a ng-click="getAverageLap()" ng-if="lapsCount > 0" >Average Lap</a>
-            <h4 ng-if="showAverageLaps"> {{ averageLap }} </h4>
-        </div>
+
+        <dl ng-if="showLaps" ng-repeat="lap in laps track by $index" class="dl-horizontal">
+            <dt ng-if="$index > 0">{{ $index }}</dt>
+            <dd ng-if="$index > 0">{{ lap.deltaMsString}}</dd>
+        </dl>
+
 
     </div>
+
+
 </div>
+
+

@@ -54,6 +54,8 @@ app.controller('MainController',
                 $scope.getAverageLap();
             }
 
+            return;
+
         };
 
         $scope.reset = function () {
@@ -72,6 +74,7 @@ app.controller('MainController',
             if($scope.timerOn){
                 $scope.start();
             }
+            return;
         };
 
         // $scope.getTime = function () { };

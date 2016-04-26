@@ -1,15 +1,39 @@
+:focus {outline:none; !important;}
+
 .main {
     margin-top: 75px;
+    width: 400px;
 }
 
-.timer {
+.timer-body {
+    width: 320px;
+    height: 430px;
     margin: 0 auto;
     padding: 25px;
-    width: 600px;
 }
 
-.timer .buttons{
-    margin: 0 auto;
+.timer-body .buttons-group{
     width: 250px;
+    margin: 0 auto;
     padding: 15px 0 15px 0;
+}
+
+#display{
+   margin-bottom: 5px;
+}
+
+#display h1{
+   font-size: 90px;
+}
+
+.bottom-controls button{
+    width: 165px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.lap-times{
+    margin: 50px 20px 0 0;
+   text-align:center;
+
 }
