@@ -5,6 +5,7 @@ app.controller('MainController',
         var _laps = [];
         var interval;
 
+
         // //////////////////////////////////////////
         // Init scope vars
         // //////////////////////////////////////////
@@ -17,13 +18,14 @@ app.controller('MainController',
         $scope.showAverageLaps  = false;
 
 
+
+
         // //////////////////////////////////////////
         // Scope functions
         // //////////////////////////////////////////
 
         $scope.start = function () {
             $scope.timerOn = true;
-
             if ($scope.current === undefined) {
                 $scope.current = (new Date).getTime();
                 $scope.initial = (new Date).getTime();
@@ -31,9 +33,11 @@ app.controller('MainController',
             }
         };
 
+
         $scope.stop = function () {
             $scope.timerOn = false;
         };
+
 
         $scope.lap = function () {
             // calculate lap time
@@ -53,10 +57,8 @@ app.controller('MainController',
             if($scope.showAverageLaps === true){
                 $scope.getAverageLap();
             }
-
-            return;
-
         };
+
 
         $scope.reset = function () {
             $scope.timerOff         = false;
@@ -69,12 +71,11 @@ app.controller('MainController',
             $scope.currentFormatted = '00:00';
             $scope.lapsCount        = 0;
             _laps                   = [];
-            $scope.averageLap;
+            $scope.averageLap       = undefined;
             
             if($scope.timerOn){
-                $scope.start();
+                return $scope.start();
             }
-            return;
         };
 
         // $scope.getTime = function () { };
@@ -84,9 +85,11 @@ app.controller('MainController',
             $scope.showLaps = true;
         };
 
+
         $scope.hideLaps= function () {
             $scope.showLaps = false;
         };
+
 
         $scope.getAverageLap = function () {
             var sum = 0;
@@ -102,9 +105,9 @@ app.controller('MainController',
             }
             
             $scope.showAverageLaps = true;
-            
-            
+
         };
+
 
         $scope.$watch('timerOn', function (newValue, oldValue) {
             if (newValue !== oldValue) {
@@ -113,14 +116,15 @@ app.controller('MainController',
 
                 } else {
                     stopTimer();
-
                 }
             }
         });
 
+
         // //////////////////////////////////////////
         // Helper functions
         // //////////////////////////////////////////
+
 
         function updateTimer(isInitial) {
             if (isInitial !== true) { $scope.current += 1000; }

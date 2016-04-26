@@ -1,8 +1,8 @@
-var express = require('express');
-var bodyParser = require('body-parser');
+var express        = require('express');
+var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
-var path    = require('path');
-var logger = require('./services/lib/logger');
+var path           = require('path');
+var logger         = require('./services/lib/logger');
 
 
 var app = module.exports = express();
@@ -16,8 +16,8 @@ app.set('view engine', 'ejs');
 
 var port = process.env.PORT || 8080;
 
-app.listen(port, function(){
-   logger.info("Express server listening on %d", this.address().port) ;
+app.listen(port, function () {
+    logger.info("Express server listening on %d", this.address().port);
 });
 
 

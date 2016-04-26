@@ -1,7 +1,13 @@
-:focus {outline:none; !important;}
+:focus {
+    outline: none !important;
+}
+
+a, u {
+    text-decoration: none;
+}
 
 a:hover {
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .main {
@@ -16,28 +22,28 @@ a:hover {
     padding: 25px;
 }
 
-.timer-body .buttons-group{
+.timer-body .buttons-group {
     width: 250px;
     margin: 0 auto;
     padding: 15px 0 15px 0;
 }
 
-#display{
-   margin-bottom: 5px;
+#display {
+    margin-bottom: 5px;
 }
 
-#display h1{
-   font-size: 90px;
+#display h1 {
+    font-size: 147px;
 }
 
-.bottom-controls button{
+.bottom-controls button {
     width: 165px;
     padding-left: 0;
     padding-right: 0;
 }
 
-.lap-times{
+.lap-times {
     margin: 50px 20px 0 0;
-   text-align:center;
+    text-align: center;
 
 }

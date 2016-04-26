@@ -13,18 +13,18 @@
         <!--lap-->
         <div class="bottom-controls">
             <div class="col-sm-6" ng-show="!timerOn">
-                <button class="btn btn-default" ng-click="reset()">Reset</button>
+                <button class="btn btn-lg btn-default" ng-click="reset()">Reset</button>
             </div>
             <div class="col-sm-6" ng-show="timerOn">
-                <button class="btn btn-warning" ng-click="lap()">Lap</button>
+                <button class="btn btn-warning btn-lg" ng-click="lap()">Lap</button>
             </div>
             <!--start-->
             <div class="col-sm-6" ng-show="!timerOn">
-                <button class="btn btn-success" ng-click="start()">Start</button>
+                <button class="btn btn-success btn-lg" ng-click="start()">Start</button>
             </div>
             <!--stop-->
             <div class="col-sm-6" ng-show="timerOn">
-                <button class="btn btn-danger" ng-click="stop()">Stop</button>
+                <button class="btn btn-danger btn-lg" ng-click="stop()">Stop</button>
             </div>
         </div>
         <!--reset-->
@@ -40,8 +40,8 @@
             <dt><a ng-click="getAverageLap()" ng-if="lapsCount > 0">compute avg lap</a></dt>
             <dd><h4 ng-if="showAverageLaps"> {{ averageLap }} </h4></dd>
 
-            <dt> <a class="text-center" ng-if="lapsCount > 0 && showLaps === false " ng-click="getLaps()"> view laps</a>
-                 <a ng-if="showLaps === true" ng-click="hideLaps()">hide laps</a>
+            <dt><a class="text-center" ng-if="lapsCount > 0 && showLaps === false " ng-click="getLaps()"> view laps</a>
+                <a ng-if="showLaps === true" ng-click="hideLaps()">hide laps</a>
             </dt>
             <dd></dd>
 
